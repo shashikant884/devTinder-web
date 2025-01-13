@@ -10,6 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("Shashi@123");
   const dispach = useDispatch();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handLogin = async () => {
     try {
@@ -25,6 +26,7 @@ const Login = () => {
       return navigate("/");
     } catch (err) {
       console.error(err);
+      setError(err?.response?.data);
     }
   };
 
@@ -59,6 +61,7 @@ const Login = () => {
               />
             </label>
           </div>
+          <p className="text-red-500">{error}</p>
           <div className="card-actions justify-center">
             <button className="btn btn-primary" onClick={handLogin}>
               Login
