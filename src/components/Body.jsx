@@ -21,7 +21,6 @@ const Body = () => {
       if (err.status === 401) {
         navigate("/login");
       }
-      console.log(err);
     }
   };
 
@@ -35,7 +34,7 @@ const Body = () => {
     <div>
       <NavBar />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

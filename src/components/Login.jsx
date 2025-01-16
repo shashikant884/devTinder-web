@@ -25,7 +25,6 @@ const Login = () => {
       dispach(addUser(res.data));
       return navigate("/");
     } catch (err) {
-      console.error(err);
       setError(err?.response?.data);
     }
   };
