@@ -1,8 +1,11 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { removeUserFromFeed } from "../utils/feedSlice";
 
 const UserCard = ({ user }) => {
   const { _id, firstName, lastName, photoUrl, age, gender, about } = user;
+  const dispach = useDispatch();
 
   const handleSendRequest = async (status, userId) => {
     try {
@@ -12,6 +15,7 @@ const UserCard = ({ user }) => {
         { withCredentials: true }
       );
       console.log(res);
+      dispach(removeUserFromFeed(userId));
     } catch (err) {}
   };
   return (
